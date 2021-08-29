@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Date\Date;
 use Kordy\Ticketit\Traits\ContentEllipse;
 use Kordy\Ticketit\Traits\Purifiable;
+use DateTimeInterface;
 
 class Ticket extends Model
 {
@@ -15,6 +16,11 @@ class Ticket extends Model
     protected $table = 'ticketit';
     protected $dates = ['completed_at'];
 
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
+    
     /**
      * List of completed tickets.
      *
