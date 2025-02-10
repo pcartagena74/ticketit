@@ -5,7 +5,7 @@
 
 
 @section('ticketit_header')
-{!! link_to_route($setting->grab('main_route').'.create', trans('ticketit::lang.btn-create-new-ticket'), null, ['class' => 'btn btn-primary']) !!}
+{{ html()->a($setting->grab('main_route') . '.create', trans('ticketit::lang.btn-create-new-ticket'))->class('btn btn-primary') }}
 @stop
 
 @section('ticketit_content_parent_class', 'pl-0 pr-0')

@@ -3,11 +3,7 @@
 @section('page', trans('ticketit::admin.administrator-index-title'))
 
 @section('ticketit_header')
-{!! link_to_route(
-    $setting->grab('admin_route').'.administrator.create',
-    trans('ticketit::admin.btn-create-new-administrator'), null,
-    ['class' => 'btn btn-primary'])
-!!}
+{{ html()->a($setting->grab('admin_route') . '.administrator.create', trans('ticketit::admin.btn-create-new-administrator'))->class('btn btn-primary') }}
 @stop
 
 @section('ticketit_content_parent_class', 'p-0')
@@ -15,7 +11,7 @@
 @section('ticketit_content')
     @if ($administrators->isEmpty())
         <h3 class="text-center">{{ trans('ticketit::admin.administrator-index-no-administrators') }}
-            {!! link_to_route($setting->grab('admin_route').'.administrator.create', trans('ticketit::admin.administrator-index-create-new')) !!}
+            {{ html()->a($setting->grab('admin_route') . '.administrator.create', trans('ticketit::admin.administrator-index-create-new')) }}
         </h3>
     @else
         <div id="message"></div>

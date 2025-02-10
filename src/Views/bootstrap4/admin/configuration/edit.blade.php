@@ -3,11 +3,7 @@
 @section('page', trans('ticketit::admin.config-edit-subtitle'))
 
 @section('ticketit_header')
-{!! link_to_route(
-    $setting->grab('admin_route').'.configuration.index',
-    trans('ticketit::admin.btn-back'), null,
-    ['class' => 'btn btn-secondary'])
-!!}
+{{ html()->a($setting->grab('admin_route') . '.configuration.index', trans('ticketit::admin.btn-back'))->class('btn btn-secondary') }}
 @stop
 
 @section('ticketit_content')

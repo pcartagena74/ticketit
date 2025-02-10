@@ -3,11 +3,7 @@
 @section('page', trans('ticketit::admin.status-index-title'))
 
 @section('ticketit_header')
-{!! link_to_route(
-    $setting->grab('admin_route').'.status.create',
-    trans('ticketit::admin.btn-create-new-status'), null,
-    ['class' => 'btn btn-primary'])
-!!}
+{{ html()->a($setting->grab('admin_route') . '.status.create', trans('ticketit::admin.btn-create-new-status'))->class('btn btn-primary') }}
 @stop
 
 @section('ticketit_content_parent_class', 'p-0')
@@ -15,7 +11,7 @@
 @section('ticketit_content')
     @if ($statuses->isEmpty())
         <h3 class="text-center">{{ trans('ticketit::admin.status-index-no-statuses') }}
-            {!! link_to_route($setting->grab('admin_route').'.status.create', trans('ticketit::admin.status-index-create-new')) !!}
+            {{ html()->a($setting->grab('admin_route') . '.status.create', trans('ticketit::admin.status-index-create-new')) }}
         </h3>
     @else
         <div id="message"></div>
@@ -37,19 +33,9 @@
                         {{ $status->name }}
                     </td>
                     <td>
-                        {!! link_to_route(
-                                                $setting->grab('admin_route').'.status.edit', trans('ticketit::admin.btn-edit'), $status->id,
-                                                ['class' => 'btn btn-info'] )
-                            !!}
+                        {{ html()->a($setting->grab('admin_route') . '.status.edit', trans('ticketit::admin.btn-edit'), $status->id)->class('btn btn-info') }}
 
-                            {!! link_to_route(
-                                                $setting->grab('admin_route').'.status.destroy', trans('ticketit::admin.btn-delete'), $status->id,
-                                                [
-                                                'class' => 'btn btn-danger deleteit',
-                                                'form' => "delete-$status->id",
-                                                "node" => $status->name
-                                                ])
-                            !!}
+                            {{ html()->a($setting->grab('admin_route') . '.status.destroy', trans('ticketit::admin.btn-delete'), $status->id)->class('btn btn-danger deleteit')->attribute('form', "delete-{$status->id}")->attribute('node', $status->name) }}
                         {!! CollectiveForm::open([
                                         'method' => 'DELETE',
                                         'route' => [

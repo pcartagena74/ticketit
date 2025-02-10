@@ -21,7 +21,7 @@
             @endforeach
             </tbody>
         </table>
-        {!! link_to_route($setting->grab('admin_route').'.administrator.index', trans('ticketit::admin.btn-back'), null, ['class' => 'btn btn-link']) !!}
+        {{ html()->a($setting->grab('admin_route') . '.administrator.index', trans('ticketit::admin.btn-back'))->class('btn btn-link') }}
         {!! CollectiveForm::submit(trans('ticketit::admin.btn-submit'), ['class' => 'btn btn-primary']) !!}
         {!! CollectiveForm::close() !!}
     @endif
