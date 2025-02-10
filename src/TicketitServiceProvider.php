@@ -2,7 +2,7 @@
 
 namespace Kordy\Ticketit;
 
-use Collective\Html\FormFacade as CollectiveForm;
+//use Collective\Html\FormFacade as CollectiveForm;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
@@ -43,11 +43,13 @@ class TicketitServiceProvider extends ServiceProvider
             TicketItComposer::settings($u);
 
             // Adding HTML5 color picker to form elements
+            /*
             CollectiveForm::macro('custom', function ($type, $name, $value = '#000000', $options = []) {
                 $field = $this->input($type, $name, $value, $options);
 
                 return $field;
             });
+            */
 
             TicketItComposer::general();
             TicketItComposer::codeMirror();
@@ -164,7 +166,7 @@ class TicketitServiceProvider extends ServiceProvider
         /*
          * Register the service provider for the dependency.
          */
-        $this->app->register(\Collective\Html\HtmlServiceProvider::class);
+        //$this->app->register(\Collective\Html\HtmlServiceProvider::class);
 
         if (LaravelVersion::min('5.4')) {
             $this->app->register(\Yajra\DataTables\DataTablesServiceProvider::class);
@@ -178,7 +180,7 @@ class TicketitServiceProvider extends ServiceProvider
          * Create aliases for the dependency.
          */
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-        $loader->alias('CollectiveForm', 'Collective\Html\FormFacade');
+        //$loader->alias('CollectiveForm', 'Collective\Html\FormFacade');
 
         /*
          * Register htmlify command. Need to run this when upgrading from <=0.2.2
