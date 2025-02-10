@@ -3,11 +3,7 @@
 @section('page', trans('ticketit::admin.config-index-title'))
 
 @section('ticketit_header')
-{!! link_to_route(
-    $setting->grab('admin_route').'.configuration.create',
-    trans('ticketit::admin.btn-create-new-config'), null,
-    ['class' => 'btn btn-primary'])
-!!}
+{{ html()->a($setting->grab('admin_route') . '.configuration.create', trans('ticketit::admin.btn-create-new-config'))->class('btn btn-primary') }}
 @stop
 
 @section('ticketit_content_parent_class', 'pl-0 pr-0 pb-0')
