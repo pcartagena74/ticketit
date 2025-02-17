@@ -182,7 +182,7 @@ class Agent extends User
         }
     }
 
-    public function tickets($complete = false)
+    public function tickets($complete = false): HasMany
     {
         if ($complete) {
             return $this->hasMany('Kordy\Ticketit\Models\Ticket', 'user_id')->whereNotNull('completed_at');
