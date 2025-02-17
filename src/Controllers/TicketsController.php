@@ -242,7 +242,7 @@ class TicketsController extends Controller
      *
      * @return Response
      */
-    public function show($id)
+    public function show(int $id)
     {
         $ticket = $this->tickets->findOrFail($id);
 
