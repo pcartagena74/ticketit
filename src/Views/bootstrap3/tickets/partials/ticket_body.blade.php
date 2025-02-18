@@ -19,12 +19,19 @@
                             {{ html()->a($setting->grab('main_route') . '.destroy', trans('ticketit::lang.btn-delete'), $ticket->id)->class('btn btn-danger deleteit')->attribute('form', "delete-ticket-{$ticket->id}")->attribute('node', $ticket->subject) }}
                         @elseif($setting->grab('delete_modal_type') == 'modal')
 {{-- // OR; Modal Window: 1/2 --}}
+{{-- 
                             {!! CollectiveForm::open(array(
                                     'route' => array($setting->grab('main_route').'.destroy', $ticket->id),
                                     'method' => 'delete',
                                     'style' => 'display:inline'
                                ))
                             !!}
+--}}                    
+                            {!! html()->form(
+                                    'DELETE',
+                                    array($setting->grab('main_route').'.destroy', $ticket->id),
+                                    'display:inline'
+                            )->open() !!}
                             <button type="button"
                                     class="btn btn-danger"
                                     data-toggle="modal"
@@ -35,7 +42,8 @@
                               {{ trans('ticketit::lang.btn-delete') }}
                             </button>
                         @endif
-                            {!! CollectiveForm::close() !!}
+                            {!! html()->form()->close() !!}
+                    
 {{-- // END Modal Window: 1/2 --}}
                     @endif
                 </span>
@@ -80,6 +88,7 @@
                 {!! $ticket->html !!}
             </div>
         </div>
+        {{--
         {!! CollectiveForm::open([
                         'method' => 'DELETE',
                         'route' => [
@@ -90,6 +99,13 @@
                         ])
         !!}
         {!! CollectiveForm::close() !!}
+        --}}
+        {!! html()->form(
+                'DELETE',
+                $setting->grab('main_route').'.destroy', $ticket->id,
+                "delete-ticket-$ticket->id"
+        )->open() !!}
+        {!! html()->form()->close() !!}
     </div>
 </div>
 
