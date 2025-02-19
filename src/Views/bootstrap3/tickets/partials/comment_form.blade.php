@@ -4,7 +4,7 @@
             html()->form(
                     'POST',
                     $setting->grab('main_route').'-comment.store')
-                ->class('form-horizontal')
+                ->class(['form-horizontal'])
                 ->open()
         !!}
         
