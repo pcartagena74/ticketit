@@ -14,12 +14,19 @@
                 <legend>{!! trans('ticketit::lang.reply') !!}</legend>
                 <div class="form-group">
                     <div class="col-lg-12">
-                        {!! html()->textarea('content', null, ['class' => 'form-control summernote-editor', 'rows' => "3"]) !!}
+                    {!!
+                        html()->textarea('content', null)
+                              ->class(['form-control', 'summernote-editor'])
+                              ->rows(3)
+                    !!}
                     </div>
                 </div>
 
                 <div class="text-right col-md-12">
-                    {!! html()->submit( trans('ticketit::lang.btn-submit'), ['class' => 'btn btn-primary']) !!}
+                    {!! 
+                        html()->submit( trans('ticketit::lang.btn-submit'))
+                              ->class(['btn btn-primary']) 
+                    !!}
                 </div>
 
             </fieldset>
