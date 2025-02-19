@@ -1,10 +1,11 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        {!! html()->form(
-            'POST',
-            $setting->grab('main_route').'-comment.store',
-            'form-horizontal'
-        )->open()
+        {!! 
+            html()->form(
+                    'POST',
+                    $setting->grab('main_route').'-comment.store')
+                ->class('form-horizontal')
+                ->open()
         !!}
         
             {!! html()->hidden('ticket_id', $ticket->id ) !!}
