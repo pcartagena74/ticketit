@@ -14,11 +14,14 @@
                 <legend>{!! trans('ticketit::lang.reply') !!}</legend>
                 <div class="form-group">
                     <div class="col-lg-12">
-                    {!!
+                    {{--
+                    // commented out due to inadvertent variable interpolation
                         html()->textarea('content', null)
                               ->class(['form-control', 'summernote-editor'])
                               ->rows(3)
-                    !!}
+                              ->cols(50)
+                    --}}
+                    <textarea class="form-control summernote-editor" rows="3" name="content" cols="50"></textarea>
                     </div>
                 </div>
 
