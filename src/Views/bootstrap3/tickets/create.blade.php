@@ -11,7 +11,6 @@
                         'class' => 'form-horizontal'
                         ]) !!}
         --}}
-        This is actually getting read from the repo and displayed.
         {!! html()->form(
                         'POST',
                         $setting->grab('main_route').'.store')
