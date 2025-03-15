@@ -136,9 +136,9 @@ class TicketsController extends Controller
     /**
      * Display a listing of active tickets related to user.
      *
-     * @return Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         $complete = false;
 
@@ -148,9 +148,9 @@ class TicketsController extends Controller
     /**
      * Display a listing of completed tickets related to user.
      *
-     * @return Response
+     * @return View
      */
-    public function indexComplete()
+    public function indexComplete(): View
     {
         $complete = true;
 
@@ -190,9 +190,9 @@ class TicketsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
         list($priorities, $categories) = $this->PCS();
 
@@ -240,9 +240,9 @@ class TicketsController extends Controller
      *
      * @param int $id
      *
-     * @return Response
+     * @return View
      */
-    public function show(int $id)
+    public function show(int $id): View
     {
         $ticket = $this->tickets->findOrFail($id);
 
@@ -271,7 +271,7 @@ class TicketsController extends Controller
      * @param Request $request
      * @param int     $id
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -312,7 +312,7 @@ class TicketsController extends Controller
      *
      * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
@@ -330,7 +330,7 @@ class TicketsController extends Controller
      *
      * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function complete($id)
     {
@@ -359,7 +359,7 @@ class TicketsController extends Controller
      *
      * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function reopen($id)
     {
