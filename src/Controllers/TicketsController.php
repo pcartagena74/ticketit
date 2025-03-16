@@ -136,9 +136,9 @@ class TicketsController extends Controller
     /**
      * Display a listing of active tickets related to user.
      *
-     * @return View
+     * @return Response
      */
-    public function index(): View
+    public function index()
     {
         $complete = false;
 
@@ -148,9 +148,9 @@ class TicketsController extends Controller
     /**
      * Display a listing of completed tickets related to user.
      *
-     * @return View
+     * @return Response
      */
-    public function indexComplete(): View
+    public function indexComplete()
     {
         $complete = true;
 
@@ -190,9 +190,9 @@ class TicketsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return View
+     * @return Response
      */
-    public function create(): View
+    public function create()
     {
         list($priorities, $categories) = $this->PCS();
 
@@ -240,9 +240,9 @@ class TicketsController extends Controller
      *
      * @param int $id
      *
-     * @return View
+     * @return Response
      */
-    public function show(int $id): View
+    public function show(int $id)
     {
         $ticket = $this->tickets->findOrFail($id);
 
