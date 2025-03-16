@@ -242,7 +242,7 @@ class TicketsController extends Controller
      *
      * @return Response
      */
-    public function show(int $id)
+    public function show($id)
     {
         $ticket = $this->tickets->findOrFail($id);
 
@@ -271,7 +271,7 @@ class TicketsController extends Controller
      * @param Request $request
      * @param int     $id
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -312,7 +312,7 @@ class TicketsController extends Controller
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return Response
      */
     public function destroy($id)
     {
@@ -330,7 +330,7 @@ class TicketsController extends Controller
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return Response
      */
     public function complete($id)
     {
@@ -359,7 +359,7 @@ class TicketsController extends Controller
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return Response
      */
     public function reopen($id)
     {
